@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import NavComponent from './Components/NavComponent';
+import FooterComponent from './Components/FooterComponent';
+import Welcomecomponent from './Components/WelcomeComponent';
+import FantasyComponent from './Components/FantasyComponent';
+import HistoryComponent from './Components/HistoryComponent';
+import HorrorComponent from './Components/HorrorComponent';
+import RomanceComponent from './Components/RomanceComponent';
+import ScifiComponent from './Components/ScifiComponent';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavComponent />
+      <Welcomecomponent />
+      <FantasyComponent />
+      <HistoryComponent />
+      <HorrorComponent />
+      <RomanceComponent />
+      <ScifiComponent />
+      <FooterComponent />
     </div>
   );
 }
