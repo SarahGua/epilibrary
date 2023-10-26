@@ -19,7 +19,8 @@ class CommentArea extends Component {
             method: 'POST',
             body: JSON.stringify(this.state.commentBook),
             headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNhNmEwNmY2ZTNkZDAwMTQ5NWU0NjYiLCJpYXQiOjE2OTgzMjcwNDYsImV4cCI6MTY5OTUzNjY0Nn0.lzznR5CBTnQC0y6e1cQvgFj8baobHW8japnSsHe44jQ"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNhNmEwNmY2ZTNkZDAwMTQ5NWU0NjYiLCJpYXQiOjE2OTgzMjcwNDYsImV4cCI6MTY5OTUzNjY0Nn0.lzznR5CBTnQC0y6e1cQvgFj8baobHW8japnSsHe44jQ",
+                "Content-Type": 'application/json',
             },
         })
         .then((res) => {
@@ -29,6 +30,8 @@ class CommentArea extends Component {
                 this.setState({
                     commentBook: {
                         comment: '',
+                        rate: 1, 
+                        elementId: this.props.bookAsin,
                     }
                 })
             } else {
