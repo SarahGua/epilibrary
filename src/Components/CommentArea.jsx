@@ -8,7 +8,7 @@ class CommentArea extends Component {
         commentBook: {
             comment: '',
             rate: 1, 
-            elementId: '',
+            elementId: this.props.bookAsin,
         },
     }
 
@@ -17,7 +17,7 @@ class CommentArea extends Component {
         console.log('inviamo commento')
         fetch("https://striveschool-api.herokuapp.com/api/comments/", {
             method: 'POST',
-            body: JSON.stringify(this.state.comment),
+            body: JSON.stringify(this.state.commentBook),
             headers: {
                 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTNhNmEwNmY2ZTNkZDAwMTQ5NWU0NjYiLCJpYXQiOjE2OTgzMjcwNDYsImV4cCI6MTY5OTUzNjY0Nn0.lzznR5CBTnQC0y6e1cQvgFj8baobHW8japnSsHe44jQ"
             },
@@ -28,7 +28,7 @@ class CommentArea extends Component {
                 alert('Commento Salvato!')
                 this.setState({
                     commentBook: {
-                        comment: ''
+                        comment: '',
                     }
                 })
             } else {
@@ -50,14 +50,21 @@ class CommentArea extends Component {
                         (e) => {
                             this.setState({
                                 commentBook:{
+                                    ...this.state.commentBook,
                                     comment: e.target.value
                                 } 
                             })
                         }
                     }/>
                 </Form.Group>
-                <Form.Select className="mb-3" value={this.state.commentBook.rate} onChange={(e) => {
-                    this.sendComment('rate', e.target.value)
+                <Form.Select className="mb-3" value={this.state.commentBook.rate} onChange={
+                    (e) => {
+                    this.setState({
+                        commentBook: {
+                            ...this.state.commentBook,
+                            rate: e.target.value
+                        }
+                    })
                 }}
                 required>
                     <option>Dagli un voto!</option>
