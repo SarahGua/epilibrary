@@ -25,7 +25,7 @@ class SingleBook extends Component {
                     </Card.Text>
                     <Button variant="primary">Add</Button>
                 </Card.Body>
-                <CommentArea className={this.state.selected ? 'd-block' : 'd-none'} bookAsin={this.props.book.asin}/>
+                {this.state.selected && <CommentArea bookId={this.props.book.asin}/>}
             </Card>
         )
     }
