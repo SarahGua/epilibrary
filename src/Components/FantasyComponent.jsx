@@ -14,7 +14,7 @@ function FantasyComponent (){
                         if (index<6){
 
                             return (
-                                <Col md={2}>
+                                <Col sm={6} md={4} lg={2} key={bookFantasy.asin} className='mt-2'>
                                 <Card className='h-100'>
                                     <Card.Img variant="top" src={bookFantasy.img} className='w-100'/>
                                     <Card.Body className='d-flex flex-column justify-content-around'>
